@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15100e">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Confirm your film.some email address and get back to the movies.">
+  <title>Email confirmation — film.some</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="nav"><a class="brand" href="../" aria-label="film.some home">film<i>.</i>some<i>.</i></a><span class="label">Welcome to the movies</span></header>
+    <main class="verify-wrap">
+      <section class="verify-card" aria-live="polite">
+        <div class="verify-icon" id="status-icon" aria-hidden="true">✦</div>
+        <span class="label" id="eyebrow">Account confirmation</span>
+        <h1 id="headline">Checking your link.</h1>
+        <p id="message">We're checking your confirmation link.</p>
+        <a class="button" id="open-app" href="filmsome://">Open film.some →</a>
+        <p class="note" id="note">If the app doesn't open, return to film.some on your iPhone and log in.</p>
+      </section>
+    </main>
+    <footer class="footer"><a class="brand" href="../">film<i>.</i>some<i>.</i></a><span>See you at the movies.</span><span>© 2026 film.some</span></footer>
+  </div>
+  <script>
+    (function () {
+      // Supabase may return email confirmation results in query OR fragment.
+      // Never display, log, store, or forward the authentication credentials.
+      var search = new URLSearchParams(window.location.search.slice(1));
+      var fragment = new URLSearchParams(window.location.hash.replace(/^#\/?/, ''));
+      var get = function (key) { return fragment.get(key) || search.get(key); };
+      var hasError = !!(get('error') || get('error_code') || get('error_description'));
+      var confirmed = !!(get('access_token') || get('code'));
+      // Immediately erase any auth tokens / errors from the visible URL.
+      if (window.location.search || window.location.hash) {
+        window.history.replaceState(null, document.title, window.location.pathname);
+      }
+      var $ = function (id) { return document.getElementById(id); };
+      if (hasError) {
+        $('status-icon').textContent = '!';
+        $('eyebrow').textContent = 'Link needs attention';
+        $('headline').textContent = 'This link didn’t work.';
+        $('message').textContent = 'The confirmation link may have expired or already been used. If you’ve confirmed before, you can simply log in. Otherwise, request a new link from the app.';
+        $('note').textContent = 'Your account may already be verified. Try logging in first.';
+      } else if (confirmed) {
+        $('status-icon').textContent = '✓';
+        $('eyebrow').textContent = 'Email confirmed';
+        $('headline').textContent = 'You’re in.';
+        $('message').textContent = 'Your email has been verified. Welcome to film.some. Now all that’s left is to find a film worth going out for.';
+        $('note').textContent = 'Return to film.some on your iPhone and log in with your email and password.';
+      } else {
+        $('status-icon').textContent = '✦';
+        $('eyebrow').textContent = 'Account confirmation';
+        $('headline').textContent = 'See you at the movies.';
+        $('message').textContent = 'If you just followed a confirmation email, return to the app and try logging in to check your account. Otherwise, open the verification link in your email.';
+        $('note').textContent = 'You can always return to the film.some app to sign in.';
+      }
+    }());
+  </script>
+</body>
+</html>
