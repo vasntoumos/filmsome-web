@@ -5,6 +5,8 @@
 }
 .concept-stage {
   position: relative;
+  /* A size container lets the headline scale to the card's actual inner width. */
+  container-type: inline-size;
   padding: clamp(46px, 6vw, 88px) clamp(24px, 5.2vw, 72px) 68px;
   background:
     radial-gradient(ellipse at 89% 16%, rgba(129, 72, 50, .26), transparent 38%),
@@ -25,39 +27,55 @@
 .concept-eyebrow { font-size: 11px; letter-spacing: .21em; }
 .concept-headline {
   margin: 44px 0 0 !important;
-  max-width: none !important;
-  font-size: clamp(42px, 8.7vw, 106px) !important;
-  line-height: 1.07 !important;
-  font-weight: 620 !important;
-  letter-spacing: -.078em !important;
-}
-.headline-before {
-  display: block;
-  color: #e4c7ad;
-  font-size: .83em;
-  font-weight: 540;
-  letter-spacing: -.067em;
-}
-.headline-wordplay {
   display: flex;
   align-items: baseline;
   flex-wrap: nowrap;
   white-space: nowrap;
-  margin-top: .07em;
+  max-width: none !important;
+  /* Fallback first; modern browsers size against the inner card width. */
+  font-size: clamp(20px, 7.8vw, 102px) !important;
+  font-size: 10.1cqi !important;
+  line-height: 1.15 !important;
+  font-weight: 620 !important;
+  letter-spacing: -.078em !important;
+}
+.headline-before {
+  display: inline;
+  flex: 0 0 auto;
+  color: #e4c7ad;
+  font-size: .78em;
+  font-weight: 540;
+  letter-spacing: -.065em;
+  margin-right: .18em;
+}
+.headline-wordplay {
+  display: inline-flex;
+  align-items: baseline;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  margin-top: 0;
 }
 .embedded-wordmark {
   color: #fff0dd;
+  font-size: 1.14em;
   font-weight: 800;
   letter-spacing: -.092em;
   white-space: nowrap;
 }
-.wordmark-dot, .headline-end-dot {
+.wordmark-dot {
   color: #dd6257;
   font-weight: 850;
+}
+/* The last full stop matches the opening “you.” dot, not the brand's red dot. */
+.headline-end-dot {
+  color: #e4c7ad;
+  font-weight: 700;
 }
 .headline-remainder {
   margin-left: -.025em;
   color: #c79f86;
+  font-size: .84em;
   font-weight: 490;
   letter-spacing: -.091em;
 }
@@ -97,8 +115,7 @@
   .concept-hero { padding-top: 50px; }
   .concept-stage { padding: 35px 20px 43px; }
   .concept-stage::after { inset: 9px; }
-  .concept-headline { font-size: clamp(29px, 8.75vw, 65px) !important; margin-top: 43px !important; }
-  .headline-before { font-size: .93em; }
+  .concept-headline { font-size: 10.1cqi !important; margin-top: 43px !important; }
   .concept-bottom { display: block; }
   .concept-bottom .lead { font-size: 16px; }
   .concept-button { margin-top: 28px; }
@@ -107,7 +124,7 @@
 }
 @media(max-width: 390px) {
   .concept-stage { padding-left: 16px; padding-right: 16px; }
-  .concept-headline { font-size: 8.35vw !important; }
+  .concept-headline { font-size: 10.1cqi !important; }
 }
 @media(prefers-reduced-motion:reduce) {
   .concept-button { transition: none !important; }
