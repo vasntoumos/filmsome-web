@@ -1,0 +1,114 @@
+/* film.some landing-page wordplay — the logo is embedded inside "someone". */
+.concept-hero {
+  display: block;
+  padding: 94px 0 0;
+}
+.concept-stage {
+  position: relative;
+  padding: clamp(46px, 6vw, 88px) clamp(24px, 5.2vw, 72px) 68px;
+  background:
+    radial-gradient(ellipse at 89% 16%, rgba(129, 72, 50, .26), transparent 38%),
+    radial-gradient(ellipse at 0% 100%, rgba(110, 69, 49, .17), transparent 43%),
+    linear-gradient(138deg, #2b211c 0%, #201713 54%, #18120f 100%);
+  border: 1px solid #5a4033;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 30px 115px #08050353;
+}
+.concept-stage::after {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(233, 190, 157, .07);
+  pointer-events: none;
+}
+.concept-eyebrow { font-size: 11px; letter-spacing: .21em; }
+.concept-headline {
+  margin: 44px 0 0 !important;
+  max-width: none !important;
+  font-size: clamp(42px, 8.7vw, 106px) !important;
+  line-height: 1.07 !important;
+  font-weight: 620 !important;
+  letter-spacing: -.078em !important;
+}
+.headline-before {
+  display: block;
+  color: #e4c7ad;
+  font-size: .83em;
+  font-weight: 540;
+  letter-spacing: -.067em;
+}
+.headline-wordplay {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  margin-top: .07em;
+}
+.embedded-wordmark {
+  color: #fff0dd;
+  font-weight: 800;
+  letter-spacing: -.092em;
+  white-space: nowrap;
+}
+.wordmark-dot, .headline-end-dot {
+  color: #dd6257;
+  font-weight: 850;
+}
+.headline-remainder {
+  margin-left: -.025em;
+  color: #c79f86;
+  font-weight: 490;
+  letter-spacing: -.091em;
+}
+.concept-underline { display: flex; gap: 7px; margin: 31px 0 34px; }
+.concept-underline span:first-child { width: 60px; height: 3px; background: #df675b; }
+.concept-underline span:last-child { width: 18px; height: 3px; background: #b98867; }
+.concept-bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 34px;
+}
+.concept-bottom .lead {
+  margin: 0;
+  max-width: 610px;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.68;
+}
+.concept-button { white-space: nowrap; flex-shrink: 0; background: #e4b88f; border-color: #e4b88f; }
+.concept-button span { margin-left: 18px; font-size: 19px; }
+.concept-marquee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 5px 25px;
+  color: #997d6b;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .2em;
+}
+.concept-marquee span:nth-child(even) { color: #dc675b; font-size: 15px; }
+/* The terminal brand dot remains in the header/footer, while the embedded
+   wordmark drops it so "film.some" can flow into "one else.". */
+.nav .brand i, .footer .brand i { color: #dd6257; }
+@media(max-width: 780px) {
+  .concept-hero { padding-top: 50px; }
+  .concept-stage { padding: 35px 20px 43px; }
+  .concept-stage::after { inset: 9px; }
+  .concept-headline { font-size: clamp(29px, 8.75vw, 65px) !important; margin-top: 43px !important; }
+  .headline-before { font-size: .93em; }
+  .concept-bottom { display: block; }
+  .concept-bottom .lead { font-size: 16px; }
+  .concept-button { margin-top: 28px; }
+  .concept-marquee { flex-wrap: wrap; justify-content: flex-start; gap: 12px; line-height: 1.65; font-size: 9px; }
+  .concept-marquee span:nth-child(4), .concept-marquee span:nth-child(5) { display: none; }
+}
+@media(max-width: 390px) {
+  .concept-stage { padding-left: 16px; padding-right: 16px; }
+  .concept-headline { font-size: 8.35vw !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .concept-button { transition: none !important; }
+}
