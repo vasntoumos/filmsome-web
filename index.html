@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#15100e">
-  <meta name="description" content="film.some makes going to the cinema a little more social. Discover what's playing in Paris, see who's going, and make plans together.">
+  <meta name="description" content="You. A film. Someone else. film.some is the social cinema app for making movie plans, inviting friends and seeing who's going. Paris first.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="film.some — a little more cinema, a little more together">
-  <meta property="og:description" content="Discover films, find screenings and make plans together. Paris first.">
-  <title>film.some — Cinema is better together</title>
+  <meta property="og:title" content="film.some — you. a film. someone else.">
+  <meta property="og:description" content="Make a plan. Invite your people. Go to the cinema together. Paris first.">
+  <title>film.some — you. a film. someone else.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315100e'/%3E%3Ctext x='32' y='43' font-size='34' font-family='Arial' text-anchor='middle' font-weight='bold' fill='%23deb68f'%3Ef.%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/tagline.css">
 </head>
 <body>
   <div class="shell">
@@ -22,22 +23,20 @@
       </div>
     </header>
     <main>
-      <section class="hero">
-        <div>
-          <span class="label"><span class="pulse"></span> Made for moviegoers</span>
-          <h1>A little more cinema.<br><em>A little more together.</em></h1>
-          <p class="lead">Find what's playing, see who's going, and turn a film into a plan. Your cinema life, with a little more connection.</p>
-          <div class="pills" aria-label="App details">
-            <span class="pill">Paris first</span>
-            <span class="pill">Discover screenings</span>
-            <span class="pill">Invite your people</span>
-            <span class="pill">Cinema clubs</span>
+      <section class="hero concept-hero" aria-labelledby="headline">
+        <div class="concept-stage">
+          <span class="label concept-eyebrow"><span class="pulse"></span> Going to the movies, together</span>
+          <h1 id="headline" class="concept-headline" aria-label="You. A film. Someone else.">
+            <span class="headline-before">you. a</span>
+            <span class="headline-wordplay" aria-hidden="true"><span class="embedded-wordmark">film<span class="wordmark-dot">.</span>some</span><span class="headline-remainder">one else<span class="headline-end-dot">.</span></span></span>
+          </h1>
+          <div class="concept-underline" aria-hidden="true"><span></span><span></span></div>
+          <div class="concept-bottom">
+            <p class="lead">A film is better with someone. Find a screening, make a plan, and bring your people along.</p>
+            <a class="button concept-button" href="#about">Get to know us <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="reel"><span class="reel-inner">f.</span></div>
-          <span class="art-caption">See you at the movies</span>
-        </div>
+        <div class="concept-marquee" aria-hidden="true"><span>PARIS, FRANCE</span><span>✳</span><span>THE SOCIAL CINEMA APP</span><span>✳</span><span>COMING TO IPHONE</span></div>
       </section>
       <div class="divider"></div>
       <section class="intro" id="about">
@@ -45,17 +44,17 @@
           <span class="label">The idea</span>
           <h2>Going to the movies is a plan worth sharing.</h2>
         </div>
-        <p>For the spontaneous Tuesday screening, the sold-out classic, and the friend who says “I'm in.”</p>
+        <p>The film brings you to the cinema. The people make it a night to remember.</p>
       </section>
       <section class="grid" aria-label="What film.some does">
-        <article class="feature"><span class="num">01 / DISCOVER</span><h3>What's on?</h3><p>Explore films and cinema screenings across Paris, all in one place.</p></article>
-        <article class="feature"><span class="num">02 / CONNECT</span><h3>Who's going?</h3><p>See plans people choose to share, and invite friends to join you.</p></article>
-        <article class="feature"><span class="num">03 / BELONG</span><h3>Your kind of crowd.</h3><p>Follow cinema clubs, join outings, and keep your cinema diary.</p></article>
+        <article class="feature"><span class="num">01 / MAKE A PLAN</span><h3>Pick a screening.</h3><p>Find the film and cinema that work for you, using real screenings across Paris.</p></article>
+        <article class="feature"><span class="num">02 / INVITE</span><h3>Bring your people.</h3><p>Invite friends, organize a cinema outing, and keep everyone in the loop.</p></article>
+        <article class="feature"><span class="num">03 / CONNECT</span><h3>See who's going.</h3><p>Discover public cinema plans, connect with moviegoers, and join cinema clubs.</p></article>
       </section>
       <section class="closer">
         <span class="label">Coming to iPhone</span>
         <div class="big">More than a film. <span style="color:var(--accent)">A moment.</span></div>
-        <p>Currently in testing. Public launch planned for January 2027.</p>
+        <p>Currently in TestFlight testing. Public launch planned for January 2027.</p>
       </section>
     </main>
     <footer class="footer"><a class="brand" href="./">film<i>.</i>some<i>.</i></a><span>An independent cinema project, born in Paris.</span><span>© 2026 film.some</span></footer>
