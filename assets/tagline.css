@@ -33,11 +33,11 @@
   white-space: nowrap;
   max-width: none !important;
   /* Fallback first; modern browsers size against the inner card width. */
-  font-size: clamp(20px, 7.8vw, 102px) !important;
-  font-size: 10.1cqi !important;
+  font-size: clamp(21px, 6.2vw, 87px) !important;
+  font-size: 8.65cqi !important;
   line-height: 1.15 !important;
   font-weight: 620 !important;
-  letter-spacing: -.078em !important;
+  letter-spacing: normal !important;
 }
 .headline-before {
   display: inline;
@@ -45,8 +45,8 @@
   color: #e4c7ad;
   font-size: .78em;
   font-weight: 540;
-  letter-spacing: -.065em;
-  margin-right: .18em;
+  letter-spacing: 0;
+  margin-right: .30em;
 }
 .headline-wordplay {
   display: inline-flex;
@@ -60,7 +60,7 @@
   color: #fff0dd;
   font-size: 1.14em;
   font-weight: 800;
-  letter-spacing: -.092em;
+  letter-spacing: -.02em;
   white-space: nowrap;
 }
 .wordmark-dot {
@@ -73,11 +73,11 @@
   font-weight: 700;
 }
 .headline-remainder {
-  margin-left: -.025em;
+  margin-left: .03em;
   color: #c79f86;
   font-size: .84em;
   font-weight: 490;
-  letter-spacing: -.091em;
+  letter-spacing: -.005em;
 }
 .concept-underline { display: flex; gap: 7px; margin: 31px 0 34px; }
 .concept-underline span:first-child { width: 60px; height: 3px; background: #df675b; }
@@ -115,7 +115,7 @@
   .concept-hero { padding-top: 50px; }
   .concept-stage { padding: 35px 20px 43px; }
   .concept-stage::after { inset: 9px; }
-  .concept-headline { font-size: 10.1cqi !important; margin-top: 43px !important; }
+  .concept-headline { font-size: 8.65cqi !important; margin-top: 43px !important; }
   .concept-bottom { display: block; }
   .concept-bottom .lead { font-size: 16px; }
   .concept-button { margin-top: 28px; }
@@ -124,7 +124,7 @@
 }
 @media(max-width: 390px) {
   .concept-stage { padding-left: 16px; padding-right: 16px; }
-  .concept-headline { font-size: 10.1cqi !important; }
+  .concept-headline { font-size: 8.65cqi !important; }
 }
 @media(prefers-reduced-motion:reduce) {
   .concept-button { transition: none !important; }
