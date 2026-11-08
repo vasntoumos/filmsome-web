@@ -1,5 +1,5 @@
 # filmsome-web
-he official website of film.some
+the official website of film.some
 # Account email pages — AUTH-001
 
 The /verified/ and /reset-password/ pages support bilingual confirmation, resend and full browser password recovery. Coordinate deployment with vasntoumos/filmsome/docs/AUTH_EMAIL_ACCESS.md and the supplied confirm-signup.html / recovery.html Auth templates.
