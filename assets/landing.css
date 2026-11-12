@@ -142,3 +142,27 @@ button, a { -webkit-tap-highlight-color: transparent; }
  .hero-description{font-size:18px;}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.carousel-track{scroll-behavior:auto}.carousel-arrow,.carousel-dots button,.primary-button{transition:none}}
+
+/* Beta access: compact mobile-first form with accessible feedback. */
+.beta-form{max-width:530px;margin:30px auto 0;text-align:left;}
+.beta-label{display:block;margin:0 0 9px;font-size:12px;letter-spacing:.08em;color:#e8d6ca;font-weight:700;text-transform:uppercase;}
+.beta-input-row{display:flex;gap:10px;align-items:stretch;}
+.beta-input-row input{flex:1;min-width:0;min-height:52px;border-radius:13px;border:1px solid #745548;background:#1a110e;color:var(--cream);padding:0 16px;font-size:16px;font:inherit;}
+.beta-input-row input::placeholder{color:#a58c80;}
+.beta-input-row input:focus{border-color:#ead2b9;}
+.beta-input-row .primary-button{border:0;cursor:pointer;white-space:nowrap;font-size:14px;box-shadow:none;}
+.beta-input-row .primary-button:disabled{opacity:.65;cursor:wait;transform:none;}
+.beta-consent{display:flex;gap:11px;margin-top:19px;font-size:12px;line-height:1.6;color:#d6beb1;cursor:pointer;}
+.beta-consent input{appearance:auto;flex:0 0 auto;margin:3px 0 0;width:16px;height:16px;accent-color:var(--red);}
+.beta-consent a{color:#f8d4b8;text-decoration:underline;text-underline-offset:3px;}
+.beta-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;}
+.beta-feedback{max-width:530px;margin:18px auto 0!important;min-height:1.5em;font-size:14px!important;line-height:1.5!important;text-align:left;}
+.beta-feedback[data-state="success"]{color:#d5eec8!important;text-align:center;}
+.beta-feedback[data-state="error"]{color:#ffb7a8!important;}
+.beta-form[hidden]{display:none!important;}
+@media(max-width:600px){
+  .beta-form{margin-top:24px;}
+  .beta-input-row{flex-direction:column;}
+  .beta-input-row input,.beta-input-row .primary-button{width:100%;min-height:52px;}
+  .beta-feedback{text-align:center;}
+}
