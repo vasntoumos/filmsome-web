@@ -16,7 +16,7 @@ test("landing replaces broken contact CTA with a private beta request form", () 
   assert.doesNotMatch(script, /SUPABASE_SERVICE_ROLE_KEY|sb_secret_|service_role/);
 });
 
-function harness(reply) {
+function harness(reply, lang = "en") {
   let submitHandler;
   const feedback = {
     textContent: "", dataset: {},
@@ -39,7 +39,7 @@ function harness(reply) {
   };
   const calls = [];
   const sandbox = {
-    document: { getElementById: id => id === "beta-waitlist-form" ? form : feedback },
+    document: { documentElement: {lang}, getElementById: id => id === "beta-waitlist-form" ? form : feedback },
     fetch: async (url, options) => { calls.push({url, options}); return reply(); },
     Error, JSON,
   };
@@ -66,4 +66,17 @@ test("failed beta request leaves form visible and allows retry", async () => {
   assert.equal(h.feedback.dataset.state, "error");
   assert.match(h.feedback.textContent, /Too many requests/);
   assert.equal(h.button.disabled, false);
+});
+
+test("French beta submission confirms in French",async()=>{
+  const h=harness(()=>({ok:true,json:async()=>({ok:true})}),"fr");
+  await h.submit();
+  assert.match(h.feedback.textContent,/place se libère pour la bêta/);
+  assert.equal(h.feedback.dataset.state,"success");
+});
+test("French beta submission translates rate-limit errors",async()=>{
+  const h=harness(()=>({ok:false,json:async()=>({ok:false,error:"Too many requests"})}),"fr");
+  await h.submit();
+  assert.match(h.feedback.textContent,/Trop de demandes/);
+  assert.equal(h.feedback.dataset.state,"error");
 });
