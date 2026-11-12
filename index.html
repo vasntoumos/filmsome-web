@@ -129,8 +129,17 @@
         <p class="section-kicker">Starting in Paris</p>
         <h2 id="beta-title">see you at the cinema.</h2>
         <p>film.some is currently being tested on iPhone. Want to be part of it?</p>
-        <a class="primary-button" href="https://filmso.me/contact/">Ask for beta access <span aria-hidden="true">↗</span></a>
-        <p class="beta-small">iOS TestFlight · Paris first</p>
+        <form class="beta-form" id="beta-waitlist-form" aria-label="Request beta access">
+          <label class="beta-label" for="beta-email">your email address</label>
+          <div class="beta-input-row">
+            <input id="beta-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required>
+            <button class="primary-button" type="submit">Request access <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="beta-honeypot" aria-hidden="true"><label>Leave this field blank <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="beta-consent"><input type="checkbox" name="consent" required><span>I agree to receive an email about film.some beta access. No marketing emails. <a href="/privacy/">Privacy policy</a></span></label>
+        </form>
+        <p class="beta-feedback" id="beta-feedback" role="status" aria-live="polite"></p>
+        <p class="beta-small">iOS TestFlight · Paris first · invitations sent manually</p>
       </section>
     </main>
 
@@ -147,6 +156,7 @@
     </footer>
   </div>
   <script src="./assets/carousel.js" defer></script>
+  <script src="./assets/beta-waitlist.js" defer></script>
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
