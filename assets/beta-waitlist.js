@@ -2,6 +2,7 @@
   const form = document.getElementById("beta-waitlist-form");
   const feedback = document.getElementById("beta-feedback");
   if (!form || !feedback) return;
+  const isFrench = (document.documentElement?.lang || "en").toLowerCase().startsWith("fr");
   const button = form.querySelector('button[type="submit"]');
   const endpoint = "https://aaxkcatrdchkjtcniyev.supabase.co/functions/v1/beta-waitlist";
 
@@ -23,14 +24,17 @@
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.ok !== true) {
-        throw new Error(typeof result.error === "string" ? result.error : "Please try again shortly.");
+        throw new Error(typeof result.error === "string" ? result.error : (isFrench ? "Veuillez réessayer dans un instant." : "Please try again shortly."));
       }
       form.hidden = true;
       feedback.dataset.state = "success";
-      feedback.textContent = "you're on the list! If a beta spot opens up, we'll contact you by email.";
+      feedback.textContent = isFrench ? "C’est noté ! Si une place se libère pour la bêta, nous te contacterons par e-mail." : "you're on the list! If a beta spot opens up, we'll contact you by email.";
     } catch (error) {
       feedback.dataset.state = "error";
-      feedback.textContent = error instanceof Error ? error.message : "Please try again shortly.";
+      const message = error instanceof Error ? error.message : "";
+      feedback.textContent = isFrench
+        ? (message === "Too many requests" ? "Trop de demandes. Réessaie un peu plus tard." : message || "Veuillez réessayer dans un instant.")
+        : message || "Please try again shortly.";
     } finally {
       button.disabled = false;
       button.removeAttribute("aria-busy");
