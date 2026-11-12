@@ -25,3 +25,19 @@ test('landing carousel remains lightweight and user-controlled',()=>{
   assert(css.includes('scroll-snap-type'));
   assert(css.includes('prefers-reduced-motion'));
 });
+
+test('French landing has localized navigation, screen captions, and working paths',()=>{
+  const fr=fs.readFileSync(path.join(root,'fr','index.html'),'utf8');
+  assert.match(home,/href="\/fr\/" lang="fr"/);
+  assert.match(fr,/<html lang="fr">/);
+  assert.match(fr,/href="\/" lang="en"/);
+  assert.match(fr,/aria-current="page" aria-label="Français, langue actuelle"/);
+  assert.match(fr,/href="\/privacy\/\?lang=fr"/);
+  assert.match(fr,/id="beta-waitlist-form"/);
+  assert.match(fr,/data-screenshot-carousel/);
+  assert.match(fr,/le bon film passe déjà quelque part/);
+  assert.doesNotMatch(fr,/<a href="#how-it-works">How it works<\/a>/);
+  for(const name of ['invites','activity','home-programme','selected-screening']) {
+    assert(fr.includes('/assets/screenshots/'+name+'.webp'));
+  }
+});
